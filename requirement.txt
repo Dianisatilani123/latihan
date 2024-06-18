@@ -1,7 +1,6 @@
+joblib
 pip==24.0
 pandas==2.2.2
-joblib
-joblib
 python-time
 streamlit
 scikit-learn==1.5.0
