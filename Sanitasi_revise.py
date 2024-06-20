@@ -86,6 +86,8 @@ if st.button('Prediksi'):
     
     # Convert input_data ke numpy array dan buat DataFrame dengan nama kolom asli
     input_data_array = np.array(input_data_tuple).reshape(1, -1)
+    
+    # Buat DataFrame dengan nama kolom asli dari X_train
     input_data_df = pd.DataFrame(input_data_array, columns=X.columns[:5])  # Sesuaikan kolom sesuai dengan input
 
     # Standarisasi data input
