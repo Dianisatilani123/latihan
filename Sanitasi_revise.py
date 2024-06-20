@@ -8,7 +8,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import pickle
 
 # Memuat dataset
-@st.cache
+@st.cache_data
 def load_data():
     return pd.read_csv('sanitary.csv', delimiter=';')
 
@@ -86,14 +86,14 @@ if st.button('Prediksi'):
     
     # Convert input_data ke numpy array dan buat DataFrame dengan nama kolom asli
     input_data_array = np.array(input_data_tuple).reshape(1, -1)
-    input_data_df = pd.DataFrame(input_data_array, columns=X.columns)
-    
+    input_data_df = pd.DataFrame(input_data_array, columns=X.columns[:5])  # Sesuaikan kolom sesuai dengan input
+
     # Standarisasi data input
     input_data_scaled = scaler.transform(input_data_df)
     
     # Prediksi
     prediction = model.predict(input_data_scaled)
-    st.write('Tingkat Sanitasi Tinggi' if prediction[0] > 0.5 else 'Tingkat Sanitasi Rendah')
+    st.write('Tingkat Sanitasi Tinggi' jika prediction[0] > 0.5 else 'Tingkat Sanitasi Rendah')
 
 # Simpan model
 if st.button('Simpan Model'):
