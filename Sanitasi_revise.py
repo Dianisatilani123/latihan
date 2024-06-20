@@ -93,7 +93,7 @@ if st.button('Prediksi'):
     
     # Prediksi
     prediction = model.predict(input_data_scaled)
-    st.write('Tingkat Sanitasi Tinggi' jika prediction[0] > 0.5 else 'Tingkat Sanitasi Rendah')
+    st.write('Tingkat Sanitasi Tinggi' if prediction[0] > 0.5 else 'Tingkat Sanitasi Rendah')
 
 # Simpan model
 if st.button('Simpan Model'):
