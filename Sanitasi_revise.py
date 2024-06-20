@@ -84,11 +84,14 @@ if st.button('Prediksi'):
     # Convert input_data_list menjadi tuple
     input_data_tuple = tuple(input_data_list)
     
-    # Convert input_data ke numpy array dan buat DataFrame dengan nama kolom asli
+    # Convert input_data ke numpy array
     input_data_array = np.array(input_data_tuple).reshape(1, -1)
     
-    # Buat DataFrame dengan nama kolom asli dari X_train
-    input_data_df = pd.DataFrame(input_data_array, columns=X.columns)  # Use X.columns instead of X.columns[:5]
+    # Select only the relevant columns from X
+    relevant_columns = X.columns.tolist()
+    
+    # Buat DataFrame dengan nama kolom asli dari X
+    input_data_df = pd.DataFrame(input_data_array, columns=relevant_columns)
     
     # Standarisasi data input
     input_data_scaled = scaler.transform(input_data_df)
